@@ -31,7 +31,8 @@ function NetworkSphere() {
   return (
     <group ref={groupRef}>
       {positions.map((pos, i) => (
-        <mesh key={i} position={pos}>
+       <mesh key={i} position={pos as [number, number, number]}>
+
           <sphereGeometry args={[0.05, 8, 8]} />
           <meshStandardMaterial color="#00D8FF" emissive="#00D084" emissiveIntensity={0.6} />
         </mesh>
