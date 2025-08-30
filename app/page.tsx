@@ -1,7 +1,6 @@
 'use client';
 
 import { Suspense } from 'react';
-import ParticleBackground from '@/components/3d/ParticleBackground';
 import FloatingElements from '@/components/3d/FloatingElements';
 import Header from '@/components/layout/Header';
 import HeroSection from '@/components/sections/HeroSection';
@@ -15,6 +14,11 @@ import TeamSection from '@/components/sections/TeamSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import dynamic from 'next/dynamic';
+const ParticleBackground = dynamic(
+  () => import('@/components/3d/ParticleBackground'),
+  { ssr: false } // ← ensures it only renders on the client
+);
 
 
 export default function Home() {
