@@ -15,7 +15,6 @@ import TeamSection from '@/components/sections/TeamSection';
 import ContactSection from '@/components/sections/ContactSection';
 import Footer from '@/components/sections/Footer';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
-import HeroNetwork from '@/components/3d/HeroNetwork';
 
 
 export default function Home() {
