@@ -178,7 +178,8 @@ export default function ParticleBackground() {
         <ambientLight intensity={0.6} />
         <pointLight position={[5, 5, 5]} />
 
-        <a.perspectiveCamera makeDefault position-z={camZ} fov={60} />
+       <perspectiveCamera makeDefault position-z={camZ.get()} fov={60} />
+
 <FloatingParticles />
 <AQNetwork progress={progress} mouse={mouse.current} />
 
