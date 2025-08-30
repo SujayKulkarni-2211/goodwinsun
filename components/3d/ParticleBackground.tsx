@@ -155,6 +155,13 @@ export default function ParticleBackground() {
     camZ: triggered ? 3 : 8,
     config: { mass: 2, tension: 80, friction: 50, clamp: false },
   });
+  const cameraRef = useRef<THREE.PerspectiveCamera>(null);
+const { set } = useThree();
+
+  useEffect(() => {
+  if (cameraRef.current) set({ camera: cameraRef.current });
+}, [set]);
+
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -178,7 +185,8 @@ export default function ParticleBackground() {
         <ambientLight intensity={0.6} />
         <pointLight position={[5, 5, 5]} />
 
-       <perspectiveCamera makeDefault position-z={camZ.get()} fov={60} />
+      <perspectiveCamera ref={cameraRef} position-z={camZ.get()} fov={60} />
+
 
 <FloatingParticles />
 <AQNetwork progress={progress} mouse={mouse.current} />
