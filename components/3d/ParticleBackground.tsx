@@ -134,9 +134,7 @@ function QuantumNetwork({ progress, mouse }: { progress: number; mouse: { x: num
           if (i < j && a.distanceTo(b) < (1.2 + progress * 1.5)) {
             const points = [a, b];
             const geometry = new THREE.BufferGeometry().setFromPoints(points);
-           return <primitive key={`${i}-${j}`} object={new THREE.Line(geometry, lineMaterial)} />;
-
-
+            return <line key={`${i}-${j}`} geometry={geometry} material={lineMaterial} />;
           }
           return null;
         })
@@ -155,13 +153,6 @@ export default function ParticleBackground() {
     camZ: triggered ? 3 : 8,
     config: { mass: 2, tension: 80, friction: 50, clamp: false },
   });
-  const cameraRef = useRef<THREE.PerspectiveCamera>(null);
-const { set } = useThree();
-
-  useEffect(() => {
-  if (cameraRef.current) set({ camera: cameraRef.current });
-}, [set]);
-
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -185,9 +176,7 @@ const { set } = useThree();
         <ambientLight intensity={0.6} />
         <pointLight position={[5, 5, 5]} />
 
-      <perspectiveCamera ref={cameraRef} position-z={camZ.get()} fov={60} />
-
-
+        <a.perspectiveCamera makeDefault position-z={camZ} fov={60} />
 <FloatingParticles />
 <AQNetwork progress={progress} mouse={mouse.current} />
 
