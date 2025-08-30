@@ -134,7 +134,9 @@ function QuantumNetwork({ progress, mouse }: { progress: number; mouse: { x: num
           if (i < j && a.distanceTo(b) < (1.2 + progress * 1.5)) {
             const points = [a, b];
             const geometry = new THREE.BufferGeometry().setFromPoints(points);
-            return <line key={`${i}-${j}`} geometry={geometry} material={lineMaterial} />;
+           return <primitive key={`${i}-${j}`} object={new THREE.Line(geometry, lineMaterial)} />;
+
+
           }
           return null;
         })
