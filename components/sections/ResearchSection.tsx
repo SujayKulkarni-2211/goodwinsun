@@ -13,35 +13,39 @@ export default function ResearchSection() {
 
   const papers = [
     {
-      title: 'A Novel Approach to Autonomous Threat Response using Quantum-inspired Algorithms',
-      journal: 'Journal of Advanced AI Systems',
-      year: '2024',
-      status: 'Published',
-    },
-    {
-      title: 'Predictive Analytics for Social Media Trends in Educational Technology',
-      journal: 'Global Ed-Tech Summit',
-      year: '2024',
-      status: 'Presented',
-    },
-    {
-      title: 'Optimization of Machine Learning Models via Distributed Quantum Computing',
-      journal: 'International Journal of Quantum Computing',
+      title: 'Quantum Entropy Driven Temperature Scaling for Hallucination Mitigation in Generative Models',
+      journal: 'ICAICS 2025 — Springer',
       year: '2025',
-      status: 'Accepted',
+      status: 'Published',
+      award: 'Best Paper Award',
+      link: 'https://link.springer.com/book/9783032283788',
+    },
+    {
+      title: 'Metric Driven Adaptive Temperature Scaling: A Regression Based Approach',
+      journal: 'IEEE Xplore',
+      year: '2025',
+      status: 'Published',
+      link: 'https://ieeexplore.ieee.org/document/11484146/',
+    },
+    {
+      title: 'Moving Towards Vamana: Edge LLMs',
+      journal: 'In Process — Mail for Access',
+      year: '2025',
+      status: 'In Process',
+    },
+    {
+      title: 'Ferrous Edger Ledger: A Lightweight Static Malware Detection System',
+      journal: 'In Process — Mail for Access',
+      year: '2025',
+      status: 'In Process',
     },
   ];
 
   const patents = [
     {
-      title: 'AI-driven Threat Detection and Automated Response System (Taara)',
-      number: '2024-GS-001',
+      title: 'TAARA: Trajectory-Aware Adaptive Residual Analysis',
+      number: 'In Process',
       type: 'Patent',
-    },
-    {
-      title: 'Goodwinsmart Educational Content and Curriculum',
-      number: 'GS-ED-2024',
-      type: 'Copyright',
     },
   ];
 
@@ -90,15 +94,28 @@ export default function ResearchSection() {
                           <FileText className="w-5 h-5 text-primary" />
                         </motion.div>
                         <div className="flex-1">
-                          <h4 className="font-bold mb-2 leading-tight">{paper.title}</h4>
+                          {paper.link ? (
+                            <a href={paper.link} target="_blank" rel="noopener noreferrer" className="font-bold mb-2 leading-tight hover:text-primary transition-colors block">
+                              {paper.title}
+                            </a>
+                          ) : (
+                            <h4 className="font-bold mb-2 leading-tight">{paper.title}</h4>
+                          )}
                           <div className="flex items-center space-x-4 text-sm text-foreground/70">
                             <span>{paper.journal}</span>
                             <span>•</span>
                             <span>{paper.year}</span>
                           </div>
-                          <Badge className="mt-2 bg-primary/10 text-primary border-primary/20">
-                            {paper.status}
-                          </Badge>
+                          <div className="flex items-center gap-2 mt-2 flex-wrap">
+                            <Badge className="bg-primary/10 text-primary border-primary/20">
+                              {paper.status}
+                            </Badge>
+                            {paper.award && (
+                              <Badge className="bg-yellow-500/10 text-yellow-400 border-yellow-500/20">
+                                {paper.award}
+                              </Badge>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </CardContent>

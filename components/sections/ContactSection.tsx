@@ -150,6 +150,8 @@ export default function ContactSection() {
                       <SelectValue placeholder="Domain/Purpose/Subject" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="TAARA Demo Request">TAARA Demo Request</SelectItem>
+                      <SelectItem value="TAARA Assessment">TAARA Assessment</SelectItem>
                       <SelectItem value="AI Research">AI Research</SelectItem>
                       <SelectItem value="Quantum Computing">Quantum Computing</SelectItem>
                       <SelectItem value="Partnership">Partnership</SelectItem>
